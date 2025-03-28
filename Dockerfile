@@ -1,15 +1,14 @@
-# Use official OpenJDK image
+# Use OpenJDK base image
 FROM openjdk:17-jdk-slim
 
 # Set working directory inside the container
 WORKDIR /app
 
-# # Copy the built Spring Boot JAR file
-# COPY build/libs/*.jar app.jar
+# Copy the JAR file from the correct location
 COPY build/libs/book-management-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the port your Spring Boot app runs on
+# Expose the application port
 EXPOSE 8080
 
-# Run the application
+# Command to run the app
 CMD ["java", "-jar", "app.jar"]
